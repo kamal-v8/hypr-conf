@@ -13,9 +13,12 @@
     "hyprland/window"
   ],
   "signals": [
-    { "name": "RTMIN+8", "interval": "once" }
-   ],
-  "modules-rightmid":[
+    {
+      "name": "RTMIN+8",
+      "interval": "once"
+    }
+  ],
+  "modules-rightmid": [
     "tray"
   ],
   "modules-center": [
@@ -40,7 +43,7 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "default": "",
+      // "default": " ",
       "1": "1",
       "2": "2",
       "3": "3",
@@ -50,7 +53,8 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "active": "󱓻"
+      // "active": "󱓻"
+      "active": "≒"
     },
     "persistent-workspaces": {
       "1": [],
@@ -62,7 +66,7 @@
     }
   },
   "hyprland/window": {
-    "format": "|  {class}!  |",  
+    "format": "|  {class}!  |",
     "max-length": 25,
     "rewrite": {
       " - ": "", // if no window is focused, a single dash is displayed, this removes it
@@ -83,18 +87,19 @@
       "(.*) - fish": "  [$1] ",
       "(.*Steam)...(.*)": "  $1 ",
       "(.*imv)...(.*).. (.*)": "  $2 ",
-       "OBS *. - (.*) - com.obsproject.Studio": "  $1", // not yet functional
+      "OBS *. - (.*) - com.obsproject.Studio": "  $1", // not yet functional
       // "nvim (.*) - com.mitchellh.ghostty": "  $1", // not being captured
     }
   },
   "custom/omarchy": {
-   // "format": " ",
-   //  "format": "₹|",
-     "format": " 👾 |",
-   //"format": "<span font='omarchy'>\ue900</span>",
+    // "format": " ",
+    //  "format": "₹|",
+    //  "format": " 👾 |",
+    "format": "<span font='omarchy'>\ue900</span> ",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
-   // "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+    // "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+    "tooltip-format": ""
   },
   "custom/update": {
     "format": "<span weight='bold' >\ue900</span>",
@@ -124,7 +129,7 @@
     },
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
-  }, 
+  },
   "custom/mic": {
     "format": "{text}",
     "return-type": "json",
@@ -139,7 +144,7 @@
     "format": "|󰍛 {usage}%",
     "on-click": "omarchy-launch-or-focus-tui btop"
   },
- "memory": {
+  "memory": {
     "interval": 2,
     "format": " {percentage}%|",
     "on-click": "omarchy-launch-or-focus-tui btop"
@@ -155,8 +160,8 @@
       "format": {
         "month": "<span color='#ffead3'><b>{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>",
-      },
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
     },
     "on-click-right": "~/.local/share/omarchy/bin/omarchy-cmd-tzupdate"
   },
@@ -169,11 +174,11 @@
   // },
   "network": {
     "format-icons": [
-      "󰤯|",
-      "󰤟|",
-      "󰤢|",
-      "󰤥|",
-      "󰤨|"
+      "󰤯 |",
+      "󰤟 |",
+      "󰤢 |",
+      "󰤥 |",
+      "󰤨 |"
     ],
     "format": "{icon}",
     "format-wifi": "{icon}",
@@ -193,16 +198,16 @@
     "format-plugged": "",
     "format-icons": {
       "charging": [
-        "󰢜",
-        "󰂆",
-        "󰂇",
-        "󰂈",
-        "󰢝",
-        "󰂉",
-        "󰢞",
-        "󰂊",
-        "󰂋",
-        "󰂅"
+        "󰢜 ",
+        "󰂆 ",
+        "󰂇 ",
+        "󰂈 ",
+        "󰢝 ",
+        "󰂉 ",
+        "󰢞 ",
+        "󰂊 ",
+        "󰂋 ",
+        "󰂅 "
       ],
       "default": [
         "󰁺",
@@ -217,7 +222,7 @@
         "󰁹"
       ]
     },
-    "format-full": "󰂅",
+    "format-full": "󰂅 ",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
@@ -240,7 +245,7 @@
     }
   },
   "pulseaudio": {
-    "format": "{icon}{volume}%",
+    "format": "{icon} {volume}%",
     "on-click": "omarchy-launch-audio",
     "on-click-right": "pamixer -t",
     //"tooltip-format": "Playing at {volume}%",
@@ -248,6 +253,7 @@
     "format-muted": "",
     "format-icons": {
       "headphone": "",
+      "headset": "",
       "default": [
         "",
         "",
@@ -270,14 +276,25 @@
   //   "format": " ",
   //   "tooltip": false
   // },
-  "modules-rightmid":[
-   "tray"
-  ],
+  // "modules-rightmid": [
+  // "tray"
+  // ],
   "modules-right": [
-  "custom/tray-toggle",
-  "tray"          ,
-     "custom/voxtype", "backlight", "bluetooth", "network", "pulseaudio","custom/mic", "cpu","memory", "battery"   // or whatever else
-],
+    "custom/tray-toggle",
+    "tray",
+    "custom/voxtype",
+    "backlight",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "custom/mic",
+    "cpu",
+    "memory",
+    "battery", // or whatever else
+    "custom/notification-silencing-indicator",
+    "custom/idle-indicator",
+    "custom/screenrecording-indicator"
+  ],
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-cmd-screenrecord",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
@@ -296,6 +313,22 @@
     "tooltip": true,
     "on-click-right": "omarchy-voxtype-config",
     "on-click": "omarchy-voxtype-model"
+  },
+  "custom/idle-indicator": {
+    "icon-size": 13,
+    "on-click": "omarchy-toggle-idle",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
+    "signal": 9,
+    "return-type": "json",
+    "tooltip-format": ""
+  },
+  "custom/notification-silencing-indicator": {
+    "on-click": "omarchy-toggle-notification-silencing",
+    "icon-size": 13,
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
+    "signal": 10,
+    "return-type": "json",
+    "tooltip-format": ""
   },
   "tray": {
     "icon-size": 13,
