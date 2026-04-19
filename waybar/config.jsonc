@@ -22,7 +22,10 @@
     "tray"
   ],
   "modules-center": [
-    "clock",
+    // "clock#calendar",
+    "clock#calendar",
+    "clock#time",
+    "custom/updatespacman",
     // "idle_inhibitor",
     "custom/update",
     "custom/screenrecording-indicator"
@@ -94,9 +97,7 @@
     }
   },
   "custom/omarchy": {
-    // "format": " ",
     //  "format": "₹|",
-    //  "format": " 👾 |",
     "format": "<span font='omarchy'>\ue900</span> ",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
@@ -104,7 +105,7 @@
     "tooltip-format": ""
   },
   "custom/update": {
-    "format": "<span weight='bold' >\ue900</span>",
+    "format": "  <span weight='bold' >\ue900</span>",
     "exec": "omarchy-update-available",
     "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
     "tooltip-format": "Omarchy update available",
@@ -170,9 +171,8 @@
     "on-click-right": "~/.local/share/omarchy/bin/omarchy-cmd-tzupdate"
   },
   */
-  "clock": {
-    "format": "  {:L%H:%M}",
-    "format-alt": "󰃭  {:L%A, %d %B %Y}",
+  "clock#calendar": {
+    "format": " 󰃭 ",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
@@ -189,7 +189,17 @@
       }
     },
     "actions": {
-      // "on-click": "mode",
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "clock#time": {
+    "format": "    {:L%H:%M}",
+    // "format-alt": "󰃭  {:L%A, %d %B %Y}",
+    "format-alt": "  {:L%A, %d %B %Y}",
+    "tooltip": false,
+    "actions": {
       "on-click-right": "mode",
       "on-click-forward": "tz_up",
       "on-click-backward": "tz_down",
@@ -206,16 +216,16 @@
   // },
   "network": {
     "format-icons": [
-      "󰤯 |",
-      "󰤟 |",
-      "󰤢 |",
-      "󰤥 |",
-      "󰤨 |"
+      "󰤯  |",
+      "󰤟  |",
+      "󰤢  |",
+      "󰤥  |",
+      "󰤨  |"
     ],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
-    "format-disconnected": "󰤮",
+    "format-disconnected": "󰤮  |",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)",
     "tooltip-format-ethernet": "Connected",
     "tooltip-format-disconnected": "Disconnected",
@@ -267,7 +277,7 @@
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
-    "format-connected": "",
+    "format-connected": "󰂱",
     "format-on": "",
     "format-off": "󰂲",
     "tooltip-format": "Devices connected: {num_connections}",
@@ -287,9 +297,9 @@
       "headphone": "",
       "headset": "",
       "default": [
-        "",
-        "",
-        ""
+        " ",
+        " ",
+        " "
       ]
     }
   },

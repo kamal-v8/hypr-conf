@@ -72,18 +72,18 @@ window#waybar > box {
 }
 
 #custom-omarchy {
-font-size: 16px;
-padding: 2px 0px 0px;
+font-size: 15px;
+padding: 5px 0px 0px;
 }
 
 #custom-mic.muted {
   font-size: 13px;
-  color: @foreground; /* Red for muted */
+  color: #ffffff; /* White for muted */
 }
 
 #custom-mic.unmuted {
   font-size: 14px;
-  color: @foreground; /* Default color */
+  color: #ff0000; /* Red for unmuted */
 }
 
 #custom-mic,
@@ -99,7 +99,7 @@ padding: 2px 0px 0px;
 #custom-omarchy,
 #backlight,
 #custom-updatespacman,
-
+#clock,
 #custom-update {
   min-width: 3px;
   margin: 0 7.5px;
@@ -117,6 +117,12 @@ tooltip {
 #custom-update {
   font-size: 10px;
   margin: 2px;
+}
+
+#clock.calendar {
+  color: #ff0000;
+  font-size: 19px;
+padding: 0px 0px 0px;
 }
 
 #clock, #idle_inhibitor {
@@ -185,6 +191,18 @@ tooltip label {
 }
 #bluetooth.disabled, #bluetooth.off, #bluetooth.bluetooth-off {
   color: @foreground;
+}
+
+#bluetooth.on {
+  color: #ff0000;
+}
+
+#bluetooth.connected {
+  color: #0077ff;
+}
+
+#network.disconnected {
+  color: #ff0000;
 }
 
 #custom-voxtype {
